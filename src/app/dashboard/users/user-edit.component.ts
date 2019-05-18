@@ -10,8 +10,8 @@ import { User } from '../models/user.model';
     templateUrl: './user-edit.component.html'
 })
 export class UserEditComponent implements OnInit {
-    model: any = {};
-    loaded: boolean = false;
+    model: User;
+    loaded: boolean;
 
     constructor(private location: Location,
                 private route: ActivatedRoute,
@@ -23,7 +23,6 @@ export class UserEditComponent implements OnInit {
         this.userService.getUserById(id).subscribe((user: User) => {
             this.loaded = true;
             this.model = user;
-            this.model.status = this.model.status.toString();
         });
     }
 
@@ -33,7 +32,6 @@ export class UserEditComponent implements OnInit {
 
     onSave() {
         this.model.updated_at = Date.now();
-        this.model.status = +this.model.status;
         this.userService.updateUser(this.model).subscribe((user: User) => {
             this.onCancel();
         });

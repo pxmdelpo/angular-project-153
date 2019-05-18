@@ -28,7 +28,7 @@ export class CategoriesComponent implements OnInit {
     get categories() {
         return this.allCategories
             .map((category, i) => ({ idx: i + 1, ...category}))
-            .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize)
+            .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
     }
 
     onUpdateCategory(category: Category) {
@@ -36,9 +36,8 @@ export class CategoriesComponent implements OnInit {
     }
 
     onRemoveCategory(category: Category) {
-        this.categoryService.deleteCategory(category.id). subscribe(res => {
-            this.allCategories.splice(this.allCategories.indexOf(category), 1);
-        });
+        this.categoryService.deleteCategory(category.id)
+            .subscribe(() => this.allCategories.splice(this.allCategories.indexOf(category), 1));
     }
 
 }
