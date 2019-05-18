@@ -1,3 +1,35 @@
-<p>
-  categories works!
-</p>
+<div class="container">
+    <h2 class="text-center mb-3">Lista de Categorias</h2>
+
+    <table class="table table-striped text-center">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Titulo</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Creado</th>
+                <th scope="col">Actualizado</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let category of categories">
+                <th>{{ category.idx }}</th>
+                <td>{{ category.name}}</td>
+                <td>{{ category.status === 1 ? 'Activado' : 'Desactivado' }}</td>
+                <td>{{ category.created_at | date: 'dd/MM/yy' }}</td>
+                <td>{{ category.updated_at | date: 'dd/MM/yy' }}</td>
+                <td>
+                    <div class="text-center">
+                        <button class="btn btn-primary btn-sm mr-2" type="button" (click)="onUpdateCategory(category)">Actualizar</button>
+                        <button class="btn btn-danger btn-sm" [disabled]="category.status === 2" (click)="onRemoveCategory(category)" type="button">Eliminar</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="d-flex justify-content-center">
+        <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize">
+        </ngb-pagination>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="login-component d-flex" style="width: 320px;">
+    <div class="container text-center">
+        <img class="mb-4" src="/assets/images/bootstrap-solid.svg" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal text-center">Iniciar Sesión</h1>
+        <form autocomplete="off" #loginForm="ngForm" (submit)="onSubmit()">
+            <div class="form-group">
+                <label class="sr-only">Correo electrónico</label>
+                <input type="email" class="form-control" #email="ngModel" [class.is-invalid]="email.invalid && email.touched" placeholder="Correo" [(ngModel)]="model.email" name="email" required email />
+                <div class="invalid-feedback text-left" *ngIf="email.invalid && email.touched">
+                    Ingrese un correo válido
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="sr-only">Password</label>
+                <input type="password" class="form-control" [class.is-invalid]="password.invalid && password.touched" #password="ngModel" placeholder="Contraseña" [(ngModel)]="model.password" name="password" required minlength="6" />
+                <div class="invalid-feedback text-left" *ngIf="password.invalid && password.touched">
+                    Ingrese una contraseña válida
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-lg btn-primary btn-block" [disabled]="loginForm.invalid" type="submit">Ingresar</button>
+                <div class="invalid-feedback text-center d-block" *ngIf="hasError">
+                    Correo y/o contraseña incorrecto
+                </div>
+            </div>
+            <div class="form-group">
+                Si no tienes cuenta registrate <a routerLink="/sign/register">aquí</a>
+            </div>
+        </form>
+    </div>
+</div>

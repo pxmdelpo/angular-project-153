@@ -1,3 +1,50 @@
-<p>
-  register works!
-</p>
+<div class="register-component d-flex" style="width: 320px;">
+    <div class="container text-center">
+        <h1 class="h3 mb-3 font-weight-normal text-center">Registro</h1>
+        <form autocomplete="off" #registerForm="ngForm" (submit)="onSubmit()">
+            <div class="form-group">
+                <input type="email" class="form-control" minlength="3" #name="ngModel" [class.is-invalid]="name.invalid && name.touched" placeholder="Nombre" [(ngModel)]="model.name" name="name" required />
+                <div class="invalid-feedback text-left" *ngIf="name.invalid && name.touched">
+                    Ingrese un nombre válido
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="email" class="form-control" minlength="3" #lastname="ngModel" [class.is-invalid]="lastname.invalid && lastname.touched" placeholder="Apellido" [(ngModel)]="model.lastname" name="lastname" required />
+                <div class="invalid-feedback text-left" *ngIf="lastname.invalid && lastname.touched">
+                    Ingrese un apellido válido
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="email" class="form-control" uniqueEmail #email="ngModel" [class.is-invalid]="email.invalid && email.touched" placeholder="Correo" [(ngModel)]="model.email" name="email" required email />
+                <div class="invalid-feedback text-left" *ngIf="email.invalid && email.touched">
+                    <div *ngIf="email.errors['uniqueEmail'] else otherMessage">
+                        Ya existe usuario con este correo
+                    </div>
+                    <ng-template #otherMessage>Ingrese un correo válido</ng-template>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" [class.is-invalid]="password.invalid && password.touched" #password="ngModel" placeholder="Contraseña" [(ngModel)]="model.password" name="password" required minlength="6" />
+                <div class="invalid-feedback text-left" *ngIf="password.invalid && password.touched">
+                    Ingrese una contraseña válida
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" compare="password" [class.is-invalid]="confirmPassword.invalid && confirmPassword.touched" #confirmPassword="ngModel" placeholder="Confirmar contraseña" [(ngModel)]="model.confirmPassword" name="confirmPassword"
+                    required minlength="6" />
+                <div class="invalid-feedback text-left" *ngIf="confirmPassword.invalid && confirmPassword.touched">
+                    <div *ngIf="confirmPassword.errors['required'] || confirmPassword.errors['minlength']">Ingrese una contraseña válida</div>
+                    <div *ngIf="confirmPassword.errors['compare']">Contraseñas no coinciden</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-lg btn-primary btn-block" [disabled]="registerForm.invalid" type="submit">Continuar</button>
+            </div>
+            <div class="form-group">
+                Ya tengo cuenta, <a routerLink="/sign/login">ingresar</a>
+            </div>
+        </form>
+    </div>
+</div>
