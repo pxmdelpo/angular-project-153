@@ -6,7 +6,7 @@
       "lastname": "Del Pozo",
       "email": "madepozo@gmail.com",
       "password": "123456",
-      "status": 1,
+      "status": true,
       "created_at": 1558021184699,
       "updated_at": 1558163825056
     },
@@ -16,7 +16,7 @@
       "lastname": "Flores",
       "email": "diego1@gmail.com",
       "password": "123456",
-      "status": 2,
+      "status": false,
       "created_at": 1558021172800,
       "updated_at": 1558155228836
     },
@@ -26,14 +26,14 @@
       "lastname": "Martinez",
       "email": "lucia@gmail.com",
       "password": "123456",
-      "status": 2,
+      "status": false,
       "created_at": 1558021172800,
       "updated_at": 1558155226619
     },
     {
       "created_at": 1558158964922,
       "updated_at": 1558158964922,
-      "status": 2,
+      "status": false,
       "name": "Felipe",
       "email": "felipe@gmail.com",
       "lastname": "Aguilar",
@@ -43,7 +43,7 @@
     {
       "created_at": 1558159017042,
       "updated_at": 1558159017042,
-      "status": 2,
+      "status": false,
       "name": "Ana",
       "email": "ana@gmail.com",
       "lastname": "Chirinos",
@@ -53,7 +53,7 @@
     {
       "created_at": 1558162308417,
       "updated_at": 1558162308417,
-      "status": 2,
+      "status": false,
       "name": "Miranda",
       "email": "miranda@gmail.com",
       "lastname": "Palomino",
@@ -66,42 +66,42 @@
     {
       "id": 100,
       "name": "Libros",
-      "status": 1,
+      "status": true,
       "created_at": 1558021184699,
       "updated_at": 1558163834352
     },
     {
       "id": 101,
       "name": "Vehículos",
-      "status": 1,
+      "status": true,
       "created_at": 1558021184699,
       "updated_at": 1558112044851
     },
     {
       "id": 102,
       "name": "Accesorios",
-      "status": 1,
+      "status": true,
       "created_at": 1558021184699,
       "updated_at": 1558115451871
     },
     {
       "id": 104,
       "name": "Electrónicos",
-      "status": 1,
+      "status": true,
       "created_at": 1558021184699,
       "updated_at": 1558163894487
     },
     {
       "id": 105,
       "name": "Teléfonos",
-      "status": 2,
+      "status": false,
       "created_at": 1558021184699,
       "updated_at": 1558112044851
     },
     {
       "id": 106,
       "name": "Moda",
-      "status": 2,
+      "status": false,
       "created_at": 1558021184699,
       "updated_at": 1558112044851
     }

@@ -33,13 +33,13 @@
                 <td>
                     <ngb-highlight [result]="user.email" [term]="filter.value"></ngb-highlight>
                 </td>
-                <td>{{ user.status === 1 ? 'Activado' : 'Desactivado' }}</td>
+                <td>{{ user.status ? 'Activado' : 'Desactivado' }}</td>
                 <td>{{ user.created_at | date: 'dd/MM/yy' }}</td>
                 <td>{{ user.updated_at | date: 'dd/MM/yy' }}</td>
                 <td>
                     <div class="text-center">
                         <button class="btn btn-primary btn-sm mr-2" type="button" (click)="onUpdateUser(user)">Actualizar</button>
-                        <button class="btn btn-danger btn-sm" [disabled]="user.status === 2" (click)="onRemoveUser(user)" type="button">Eliminar</button>
+                        <button class="btn btn-danger btn-sm" [disabled]="!user.status" (click)="onRemoveUser(user)" type="button">Eliminar</button>
                     </div>
                 </td>
             </tr>

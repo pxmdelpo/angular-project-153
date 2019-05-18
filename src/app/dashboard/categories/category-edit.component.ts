@@ -10,11 +10,11 @@ import { Category } from '../models/category.model';
     templateUrl: './category-edit.component.html'
 })
 export class CategoryEditComponent implements  OnInit {
-    model: any = {};
+    model: Category;
     loaded: boolean = false;
     constructor(private location: Location,
                 private route: ActivatedRoute,
-                private categoryService: CategoryService){}
+                private categoryService: CategoryService) {}
 
     ngOnInit() {
         const id = +this.route.snapshot.paramMap.get('id');
@@ -22,7 +22,6 @@ export class CategoryEditComponent implements  OnInit {
         this.categoryService.getCategoryById(id).subscribe((category: Category) => {
             this.loaded = true;
             this.model = category;
-            this.model.status = this.model.status.toString();
         });
     }
 
@@ -32,9 +31,7 @@ export class CategoryEditComponent implements  OnInit {
 
     onSave() {
         this.model.updated_at = Date.now();
-        this.model.status = +this.model.status;
-        this.categoryService.updateCategory(this.model).subscribe((category: Category) => {
-            this.onCancel();
-        });
+        this.categoryService.updateCategory(this.model)
+            .subscribe(() => this.onCancel());
     }
 }

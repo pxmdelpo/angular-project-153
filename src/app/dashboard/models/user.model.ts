@@ -3,7 +3,7 @@ export interface User {
   name: string;
   lastname: string;
   email: string;
-  status: number;
+  status: boolean;
   password?: string;
   created_at: number;
   updated_at: number;

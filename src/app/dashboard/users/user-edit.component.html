@@ -20,11 +20,11 @@
 
                 <div class="form-group">
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" name="status" id="disabled" class="custom-control-input" [(ngModel)]="model.status" value="1" required>
+                        <input type="radio" name="status" id="disabled" class="custom-control-input" [(ngModel)]="model.status" [value]="true" required>
                         <label class="custom-control-label" for="disabled">Activado</label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" name="status" id="actived" class="custom-control-input" [(ngModel)]="model.status" value="2" required>
+                        <input type="radio" name="status" id="actived" class="custom-control-input" [(ngModel)]="model.status" [value]="false" required>
                         <label class="custom-control-label" for="actived">Desactivado</label>
                     </div>
                 </div>

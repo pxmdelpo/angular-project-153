@@ -16,13 +16,13 @@
             <tr *ngFor="let category of categories">
                 <th>{{ category.idx }}</th>
                 <td>{{ category.name}}</td>
-                <td>{{ category.status === 1 ? 'Activado' : 'Desactivado' }}</td>
+                <td>{{ category.status ? 'Activado' : 'Desactivado' }}</td>
                 <td>{{ category.created_at | date: 'dd/MM/yy' }}</td>
                 <td>{{ category.updated_at | date: 'dd/MM/yy' }}</td>
                 <td>
                     <div class="text-center">
                         <button class="btn btn-primary btn-sm mr-2" type="button" (click)="onUpdateCategory(category)">Actualizar</button>
-                        <button class="btn btn-danger btn-sm" [disabled]="category.status === 2" (click)="onRemoveCategory(category)" type="button">Eliminar</button>
+                        <button class="btn btn-danger btn-sm" [disabled]="!category.status" (click)="onRemoveCategory(category)" type="button">Eliminar</button>
                     </div>
                 </td>
             </tr>
