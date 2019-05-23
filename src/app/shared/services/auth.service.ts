@@ -11,7 +11,12 @@ export class AuthService {
 
     user = null;
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) {
+        const _user = sessionStorage.getItem('user');
+        if (_user) {
+            this.user = JSON.parse(_user);
+        }
+    }
 
     login(email: string, password: string) {
         
@@ -20,6 +25,7 @@ export class AuthService {
                 if (res.length) {
                     const [user] = res;
                     this.user = user;
+                    sessionStorage.setItem('user', JSON.stringify(this.user));
                     if (user.password === password) {
                         return { logueado: true }
                     }

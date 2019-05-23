@@ -1,28 +1,82 @@
 <div class="regiser-component d-flex" style="width: 380px;">
   <div class="container text-center">
     <h1>Registro</h1>
-    <form autocomplete="off" #registerForm="ngForm">
+    <form autocomplete="off" #registerForm="ngForm" (submit)="onSubmit(registerForm.value)">
       <div class="form-group">
-        <input class="form-control" minlength="3" placeholder="Nombre" type="text" name="name" ngModel required>
+        <input class="form-control"
+          [class.is-invalid]="name.touched && name.invalid"
+          minlength="3"
+          #name="ngModel"
+          placeholder="Nombre"
+          type="text"
+          name="name"
+          ngModel
+          required>
+          <div class="invalid-feedback text-left">
+              Ingrese un nombre válido
+          </div>
       </div>
       <div class="form-group">
-        <input class="form-control" minlength="3" placeholder="Apellido" type="text" name="lastname" ngModel required>
+        <input class="form-control"
+          [class.is-invalid]="lastname.touched && lastname.invalid"
+          minlength="3"
+          #lastname="ngModel"
+          placeholder="Apellido"
+          type="text"
+          name="lastname"
+          ngModel
+          required>
+        <div class="invalid-feedback text-left">
+            Ingrese un apellido válido
+        </div>
       </div>
       <div class="form-group">
-        <input class="form-control" placeholder="Correo" type="text" name="email" ngModel required email>
+        <input class="form-control"
+          [class.is-invalid]="email.touched && email.invalid"
+          placeholder="Correo"
+          #email="ngModel"
+          type="text"
+          name="email"
+          ngModel
+          required
+          email>
+        <div class="invalid-feedback text-left">
+            Ingrese un correo válido
+        </div>
       </div>
       <div class="form-group">
-        <input class="form-control" minlength="6" placeholder="Contraseña" type="text" name="password" ngModel required>
+        <input class="form-control" [class.is-invalid]="password.touched && password.invalid" minlength="6" #password="ngModel" placeholder="Contraseña" type="password" name="password" ngModel required>
+        <div class="invalid-feedback text-left">
+            Ingrese un contraseña válida
+        </div>
       </div>
       <div class="form-group">
-        <input class="form-control" minlength="6" placeholder="Confirmar Contraseña" type="text" required name="confirmPassword" ngModel>
+        <input class="form-control"
+          #confirmPassword="ngModel"
+          [class.is-invalid]="confirmPassword.touched && confirmPassword.invalid"
+          minlength="6"
+          compare="password"
+          placeholder="Confirmar Contraseña"
+          type="password"
+          required
+          name="confirmPassword"
+          ngModel>
+        <div class="invalid-feedback text-left">
+            <p *ngIf="confirmPassword.errors && (confirmPassword.errors['required'] ||
+              confirmPassword.errors['minlength'])">
+                Ingrese una contraseña válida
+            </p>
+            <p *ngIf="confirmPassword.errors && confirmPassword.errors['compare']">
+                Las contraseña no son iguales
+            </p>
+        </div>
       </div>
       <div class="form-group">
         <button class="btn btn-primary btn-lg" [disabled]="registerForm.invalid">Continuar</button>
       </div>
-
-      <h3>Es valido: {{ registerForm.valid | json }}</h3>
-      <pre>{{ registerForm.value | json}}</pre>
+      <div class="form-group">
+          Ya tengo cuenta, <a routerLink="/sign/login">ingresar</a>
+      </div>
     </form>
   </div>
 </div>

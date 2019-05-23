@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../shared/services/auth.service';
+import { User } from '../shared/models/user.model';
 
 @Component({
     selector: 'app-dashboard',
-    template: '<p>Dashboard</p>'
+    templateUrl: './dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
-    user: any;
+    user: User;
 
     constructor(private authService: AuthService) {
 
@@ -14,7 +15,5 @@ export class DashboardComponent implements OnInit {
 
     ngOnInit() {
         this.user = this.authService.getUser();
-
-        console.log(this.user);
     }
 }
