@@ -1,3 +1,28 @@
-<p>
-  register works!
-</p>
+<div class="regiser-component d-flex" style="width: 380px;">
+  <div class="container text-center">
+    <h1>Registro</h1>
+    <form autocomplete="off" #registerForm="ngForm">
+      <div class="form-group">
+        <input class="form-control" minlength="3" placeholder="Nombre" type="text" name="name" ngModel required>
+      </div>
+      <div class="form-group">
+        <input class="form-control" minlength="3" placeholder="Apellido" type="text" name="lastname" ngModel required>
+      </div>
+      <div class="form-group">
+        <input class="form-control" placeholder="Correo" type="text" name="email" ngModel required email>
+      </div>
+      <div class="form-group">
+        <input class="form-control" minlength="6" placeholder="Contraseña" type="text" name="password" ngModel required>
+      </div>
+      <div class="form-group">
+        <input class="form-control" minlength="6" placeholder="Confirmar Contraseña" type="text" required name="confirmPassword" ngModel>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary btn-lg" [disabled]="registerForm.invalid">Continuar</button>
+      </div>
+
+      <h3>Es valido: {{ registerForm.valid | json }}</h3>
+      <pre>{{ registerForm.value | json}}</pre>
+    </form>
+  </div>
+</div>
