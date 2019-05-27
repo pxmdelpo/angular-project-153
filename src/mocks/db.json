@@ -73,9 +73,9 @@
     {
       "id": 101,
       "name": "Vehículos",
-      "status": 1,
+      "status": 2,
       "created_at": 1558021184699,
-      "updated_at": 1558112044851
+      "updated_at": 1558992559315
     },
     {
       "id": 102,
@@ -104,6 +104,13 @@
       "status": 2,
       "created_at": 1558021184699,
       "updated_at": 1558112044851
+    },
+    {
+      "name": "Libro para niños",
+      "status": 1,
+      "created_at": 1558992084267,
+      "updated_at": 1558992091867,
+      "id": 107
     }
   ]
 }

@@ -15,7 +15,6 @@ export class AuthService {
     public currentUser: Observable<User>;
 
     constructor(private http: HttpClient) {
-        console.log('AuthService constructor!');
         this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(sessionStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
     }
@@ -60,8 +59,6 @@ export class AuthService {
         if (body.confirmPassword) {
             delete body.confirmPassword;
         }
-
-        console.log(body);
 
         return this.http.post<User>(API_URL, body);
     }

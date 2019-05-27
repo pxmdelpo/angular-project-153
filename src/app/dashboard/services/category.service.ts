@@ -28,8 +28,14 @@ export class CategoryService {
         return this.http.delete(API_URL);
     }
 
-    updateCategory(category): Observable<Category> {
+    updateCategory(category: Category): Observable<Category> {
         const API_URL = `${this.BASE_URL}/${this.END_POINT}/${category.id}`;
         return this.http.put<Category>(API_URL, category);
+    }
+
+    createCategory(category: Category): Observable<Category> {
+        const API_URL = `${this.BASE_URL}/${this.END_POINT}`;
+
+        return this.http.post<Category>(API_URL, category);
     }
 }

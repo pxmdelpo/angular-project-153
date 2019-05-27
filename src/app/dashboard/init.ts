@@ -4,6 +4,7 @@ import { CategoriesComponent } from './categories/categories.component';
 import { DashboardComponent } from './dashboard.component';
 import { UserEditComponent } from './users/user-edit.component';
 import { CategoryEditComponent } from './categories/category-edit.component';
+import { NewCategoryComponent } from './categories/new-category.component';
 
 
 export const COMPONENTS = [
@@ -12,5 +13,6 @@ export const COMPONENTS = [
     UserEditComponent,
     ProductsComponent,
     CategoriesComponent,
-    CategoryEditComponent
+    CategoryEditComponent,
+    NewCategoryComponent
 ];

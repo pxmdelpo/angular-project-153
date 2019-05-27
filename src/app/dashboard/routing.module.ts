@@ -6,6 +6,7 @@ import { ProductsComponent } from './products/products.component';
 import { DashboardComponent } from './dashboard.component';
 import { UserEditComponent } from './users/user-edit.component';
 import { CategoryEditComponent } from './categories/category-edit.component';
+import { NewCategoryComponent } from './categories/new-category.component';
 
 const routes: Routes = [
     {
@@ -23,6 +24,10 @@ const routes: Routes = [
             {
                 path: 'categories',
                 component: CategoriesComponent
+            },
+            {
+                path: 'categories/new',
+                component: NewCategoryComponent
             },
             {
                 path: 'categories/:id',
