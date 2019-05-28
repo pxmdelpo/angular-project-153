@@ -79,16 +79,6 @@
       "email": "t@gmail.com",
       "password": "987654",
       "id": 116
-    },
-    {
-      "status": 1,
-      "created_at": 1559003892092,
-      "updated_at": 1559003892092,
-      "name": "Juan",
-      "lastname": "Martinez",
-      "email": "juan@gmail.com",
-      "password": "1234567",
-      "id": 117
     }
   ],
   "products": [],
