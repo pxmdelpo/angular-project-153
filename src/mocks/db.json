@@ -84,46 +84,25 @@
   "products": [],
   "categories": [
     {
-      "id": 100,
-      "name": "Libros",
-      "status": 1,
-      "created_at": 1558021184699,
-      "updated_at": 1558163834352
-    },
-    {
-      "id": 101,
-      "name": "Vehículos",
-      "status": 1,
-      "created_at": 1558021184699,
-      "updated_at": 1558112044851
-    },
-    {
-      "id": 102,
-      "name": "Accesorios",
-      "status": 1,
-      "created_at": 1558021184699,
-      "updated_at": 1558115451871
-    },
-    {
       "id": 104,
       "name": "Electrónicos",
       "status": 1,
-      "created_at": 1558021184699,
-      "updated_at": 1558163894487
+      "updated_at": 1559014081196,
+      "created_at": 1558021184699
     },
     {
-      "id": 105,
-      "name": "Teléfonos",
-      "status": 2,
-      "created_at": 1558021184699,
-      "updated_at": 1558112044851
-    },
-    {
-      "id": 106,
+      "id": 108,
       "name": "Moda",
       "status": 2,
       "created_at": 1558021184699,
       "updated_at": 1558112044851
+    },
+    {
+      "id": 110,
+      "name": "Autos",
+      "status": 1,
+      "updated_at": 1559014072828,
+      "created_at": 1558021184699
     }
   ]
 }
