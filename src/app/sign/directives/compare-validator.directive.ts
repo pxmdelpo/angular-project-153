@@ -16,9 +16,9 @@ export class CompareValidatorDirective implements Validator {
     validate(c: AbstractControl): ValidationErrors {
         const controlToCompare = c.root.get(this.compareName);
 
-        // if (c.errors && (c.errors['required'] || c.errors['minlength'])) {
-        //     return null;
-        // }
+        if (c.value === null || c.value.length < 6) {
+            return null;
+        }
 
         const subscribe = controlToCompare.valueChanges.subscribe((value) => {
             c.updateValueAndValidity();

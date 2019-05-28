@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http'
 import { environment } from '../../../environments/environment';
 
 import { map } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Injectable()
 export class AuthService {
@@ -13,6 +14,7 @@ export class AuthService {
 
     constructor(private http: HttpClient) {
         const _user = sessionStorage.getItem('user');
+
         if (_user) {
             this.user = JSON.parse(_user);
         }
@@ -24,9 +26,10 @@ export class AuthService {
             map((res: any) => {
                 if (res.length) {
                     const [user] = res;
-                    this.user = user;
-                    sessionStorage.setItem('user', JSON.stringify(this.user));
+
                     if (user.password === password) {
+                        this.user = user;
+                        sessionStorage.setItem('user', JSON.stringify(this.user));
                         return { logueado: true }
                     }
                 }
@@ -44,5 +47,12 @@ export class AuthService {
 
     getUser() {
         return this.user;
+    }
+
+    logout() {
+        this.user = null;
+        sessionStorage.clear();
+
+        return of(true);
     }
 }

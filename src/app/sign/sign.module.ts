@@ -7,9 +7,10 @@ import { RegisterComponent } from './register/register.component';
 import { RoutingModule } from './routing.module';
 import { SignComponent } from './sign.component';
 import { CompareValidatorDirective } from './directives/compare-validator.directive';
+import { UniqueDirective } from './directives/unique.directive';
 
 @NgModule({
-    declarations: [LoginComponent, RegisterComponent, SignComponent, CompareValidatorDirective],
+    declarations: [LoginComponent, RegisterComponent, SignComponent, CompareValidatorDirective, UniqueDirective],
     exports: [LoginComponent, RegisterComponent],
     imports: [CommonModule, RoutingModule, FormsModule]
 })
