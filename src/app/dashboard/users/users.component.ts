@@ -20,4 +20,8 @@ export class UsersComponent implements OnInit {
     });
   }
 
+  onUpdateUser(): void { }
+
+  onRemoveUser(): void { }
+
 }

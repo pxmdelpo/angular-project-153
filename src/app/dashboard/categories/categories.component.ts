@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../services/category.service';
 import { Category } from '../models/category.model';
 import { Router } from '@angular/router';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-categories',
@@ -15,14 +16,19 @@ export class CategoriesComponent implements OnInit {
   pageSize = 3;
   collectionSize = 0;
 
-  constructor(private categoryService: CategoryService,
-              private router: Router) { }
+  deleteMessage: string;
+
+  constructor(
+    private categoryService: CategoryService,
+    private router: Router,
+    private modalService: NgbModal
+  ) { }
 
   ngOnInit() {
     this.allCategories = [];
 
     this.categoryService.getCategories()
-      .subscribe((categories: Category[])=> {
+      .subscribe((categories: Category[]) => {
         this.allCategories = categories;
         this.collectionSize = this.allCategories.length;
       });
@@ -43,6 +49,16 @@ export class CategoriesComponent implements OnInit {
       this.allCategories = this.allCategories.filter(c => c.id !== id);
       this.collectionSize = this.allCategories.length;
     });
+  }
+
+  modalDelete(content: any, category: Category) {
+    this.deleteMessage = `¿Deseas eliminar la categoría: <b>${category.name}</b>?`;
+    this.modalService
+      .open(content, { ariaLabelledBy: 'modal-basic-title' }).result
+      .then(
+        () => this.onDelete(category.id),
+        () => { }
+      );
   }
 
 }

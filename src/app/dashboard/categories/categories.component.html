@@ -19,7 +19,8 @@
       <th scope="row">{{ category.updated_at | date }}</th>
       <th scope="row">
         <button class="btn btn-primary" (click)="onUpdate(category.id)">Actualizar</button>
-        <button class="btn btn-danger ml-2" (click)="onDelete(category.id)">Eliminar</button>
+        <button class="btn btn-danger ml-2" (click)="modalDelete(content, category)">Eliminar</button>
+        <!-- <button class="btn btn-danger ml-2" (click)="onDelete(category.id)">Eliminar</button> -->
       </th>
     </tr>
     </tbody>
@@ -34,5 +35,16 @@
   </div>
 </div>
 
-
-
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Eliminar categoría</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body" [innerHTML]="deleteMessage"></div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Cancelar</button>
+    <button type="button" ngbAutofocus class="btn btn-danger" (click)="modal.close('Ok click')">Eliminar</button>
+  </div>
+</ng-template>

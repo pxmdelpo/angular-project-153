@@ -29,8 +29,8 @@
               <td>
                   <ngb-highlight [result]="user.email" [term]="filter.value"></ngb-highlight>
               </td>
-              <th>{{user.status}}</th>
-              <th>{{user.create_at}}</th>
+              <th>{{ user.status === 1 ? 'Activado' : 'Desactivado' }}</th>
+              <th>{{ user.created_at | date }}</th>
               <td>
                   <div class="text-center">
                       <button class="btn btn-primary btn-sm mr-2" type="button" (click)="onUpdateUser(user)">Actualizar</button>
