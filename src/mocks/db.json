@@ -61,7 +61,38 @@
       "id": 114
     }
   ],
-  "products": [],
+  "products": [
+    {
+      "id": 1001,
+      "name": "JavaScript: The good parts",
+      "detail": "Most programming languages contain good and bad parts, but JavaScript has more than its share of the bad, having been developed and released in a hurry before it could be refined",
+      "stock": 5,
+      "categoryId": 100,
+      "price": 70,
+      "created_at": 1558021184699,
+      "updated_at": 1558163834352
+    },
+    {
+      "id": 1002,
+      "name": "Led 65\" Ultra HD Ambilight",
+      "detail": "Relájate y disfruta la increíble calidad 4K UHD en un Smart TV muy fácil de utilizar. Accede a tu contenido preferido al instante con SAPHI, visualiza imágenes de aspecto natural y nítido gracias a Pixel Precise Ultra HD y enlaza todo con Ambilight.",
+      "stock": 6,
+      "categoryId": 104,
+      "price": 1990.99,
+      "created_at": 1558021184699,
+      "updated_at": 1559153987475
+    },
+    {
+      "name": "La Elegancia de Vue",
+      "detail": "Vue es un framework progresivo para construir interfaces de usuario. A diferencia de otros frameworks monolíticos, Vue está diseñado desde cero para ser adoptado incrementalmente.",
+      "stock": 10,
+      "categoryId": 100,
+      "price": 50,
+      "created_at": 1559151846980,
+      "updated_at": 1559153979199,
+      "id": 1005
+    }
+  ],
   "categories": [
     {
       "id": 100,

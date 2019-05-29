@@ -4,13 +4,19 @@ import { NotificacionComponent } from './notificacion/notificacion.component';
 import { ModalConfirmComponent } from './modal-confirm/modal-confirm.component';
 import { ModuleWithProviders } from '@angular/compiler/src/core';
 import { AuthService } from './services/auth.service';
+import { ShorTextPipe } from './pipes/short-text.pipe';
 
 @NgModule({
   declarations: [
       NotificacionComponent,
-      ModalConfirmComponent],
+      ModalConfirmComponent,
+      ShorTextPipe
+    ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    ShorTextPipe
   ]
 })
 export class SharedModule {

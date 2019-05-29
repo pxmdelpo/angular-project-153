@@ -7,6 +7,8 @@ import { DashboardComponent } from './dashboard.component';
 import { UserEditComponent } from './users/user-edit.component';
 import { CategoryEditComponent } from './categories/category-edit.component';
 import { NewCategoryComponent } from './categories/new-category.component';
+import { NewProductComponent } from './products/new-product.component';
+import { EditProductComponent } from './products/edit-product.component';
 
 const routes: Routes = [
     {
@@ -36,7 +38,15 @@ const routes: Routes = [
             {
                 path: 'products',
                 component: ProductsComponent
-            }
+            },
+            {
+                path: 'products/new',
+                component: NewProductComponent
+            },
+            {
+                path: 'products/:id',
+                component: EditProductComponent
+            },
         ]
     }
 ];
