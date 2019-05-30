@@ -7,10 +7,11 @@ import { UserService } from './services/user.service';
 import { RoutingModule } from './routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CategoryService } from './services/category.service';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [...COMPONENTS],
-  imports: [CommonModule, RoutingModule, NgbModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, RoutingModule, NgbModule, FormsModule, ReactiveFormsModule, SharedModule],
   exports: [...COMPONENTS],
   providers: [UserService, CategoryService]
 })
